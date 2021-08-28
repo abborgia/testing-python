@@ -1,5 +1,5 @@
 import unittest
-from shopping_cart import Item, ShoppingCart
+from shopping_cart import Item, ShoppingCart, NotExistsItemError
 
 class TestShoppingCart(unittest.TestCase):
 
@@ -17,7 +17,7 @@ class TestShoppingCart(unittest.TestCase):
         assert 5 + 5 == 10
 
     def test_nombre_product_igual_pan(self):
-        self.assertEqual(self.pan.name, "pan")
+        self.assertEqual(self.pan.name, "pan")    # Compara valores (==)
     
     def test_nombre_product_distinto_manzana(self):
         self.assertNotEqual(self.jugo.name, "Manzana")
@@ -31,10 +31,15 @@ class TestShoppingCart(unittest.TestCase):
     
     def test_obtener_producto_pan(self):
         item = self.shopping_cart.get_item(self.pan)
-        self.assertIs(item, self.pan)
+        self.assertIs(item, self.pan)     # compara objeto (is)
         self.assertIsNot(item, self.jugo)
 
+    def test_exeption_al_obtener_jugo(self):
+        with self.assertRaises(NotExistsItemError):
+            self.shopping_cart.get_item(self.jugo)
+
     
+
     
     
 
