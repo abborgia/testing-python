@@ -23,6 +23,8 @@ class ShoppingCart:
     def contains_item(self):
         return len(self.items) > 0
 
+    def get_item(self, item):
+        return self.items[ self.items.index(item)-1 ]
 
-
+    
 

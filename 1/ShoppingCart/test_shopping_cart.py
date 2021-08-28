@@ -27,9 +27,13 @@ class TestShoppingCart(unittest.TestCase):
 
     def test_no_contiene_productos(self):
         self.shopping_cart.remove_item(self.pan)
+        self.assertFalse(self.shopping_cart.contains_item())
+    
+    def test_obtener_producto_pan(self):
+        item = self.shopping_cart.get_item(self.pan)
+        self.assertIs(item, self.pan)
 
     
-
     
 
 if __name__ == '__main__':
