@@ -1,0 +1,30 @@
+La suma de 2 + 2 es igual a 4
+
+>>> 2+2
+4
+
+La suma de 10 + 20 es igual a 30
+>>> 10 + 20 
+30
+
+>>> def suma(*args):
+...    return sum(args)
+
+
+La suma de 10 + 20 + 30 es igual a 60
+>>> suma(10, 20, 30)
+60
+
+>>> from algoritmos import fibonacci
+>>> fibonacci(12)
+144
+
+>>> fibonacci(16)
+987
+
+>>> fibonacci(20)
+6765
+
+# en consola escribimos esta sentencia para ejecutar los test:
+
+# python -m doctest -v  algoritmos.py   
