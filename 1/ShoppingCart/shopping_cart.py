@@ -7,6 +7,9 @@ class Item:
         self.name = name
         self.price = price
 
+    def code(self):
+        return "{} - 123456789".format(self.name)
+
     def __str__(self):
         return self.name
 
@@ -22,6 +25,10 @@ class ShoppingCart:
 
     def remove_item(self, item):
         self.items.remove(item)
+
+    def total(self):
+        return sum([item.price for item in self.items])
+
         
     def contains_item(self):
         return len(self.items) > 0

@@ -31,16 +31,25 @@ class TestShoppingCart(unittest.TestCase):
     
     def test_obtener_producto_pan(self):
         item = self.shopping_cart.get_item(self.pan)
-        self.assertIs(item, self.pan)     # compara objeto (is)
+        self.assertIs(item, self.pan)     # compara objeto (Is)
         self.assertIsNot(item, self.jugo)
 
     def test_exeption_al_obtener_jugo(self):
         with self.assertRaises(NotExistsItemError):
             self.shopping_cart.get_item(self.jugo)
 
-    
+    def test_total_con_un_producto(self):
+        total = self.shopping_cart.total()
+        self.assertGreater(total,0)
+        self.assertLess(total, self.pan.price + 1.0)
+        self.assertEqual(total, self.pan.price)
 
-    
+    def test_codigo_pan(self):
+        self.assertRegex(self.pan.code(), self.pan.name)
+
+    def test_fail(self):
+        if 2>3:
+            self.fail("Dos no es mayor a tres")
     
 
 if __name__ == '__main__':
