@@ -8,7 +8,7 @@ class TestShoppingCart(unittest.TestCase):
         self.jugo = Item("Jugo", 20)
 
         self.shopping_cart = ShoppingCart()
-        self.shoppin
+        self.shopping_cart.add_item(self.pan)
 
     def tearDown(self):
         print("Metodo tearDown despues de la prueba")
@@ -21,6 +21,15 @@ class TestShoppingCart(unittest.TestCase):
     
     def test_nombre_product_distinto_manzana(self):
         self.assertNotEqual(self.jugo.name, "Manzana")
+
+    def test_contiene_productos(self):
+        self.assertTrue(self.shopping_cart.contains_item())
+
+    def test_no_contiene_productos(self):
+        self.shopping_cart.remove_item(self.pan)
+
+    
+
     
 
 if __name__ == '__main__':
