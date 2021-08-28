@@ -1,6 +1,8 @@
 import unittest
 from shopping_cart import Item, ShoppingCart, NotExistsItemError
 
+API_VERSION = 17
+
 class TestShoppingCart(unittest.TestCase):
 
     def setUp(self):
@@ -51,6 +53,11 @@ class TestShoppingCart(unittest.TestCase):
         if 2>3:
             self.fail("Dos no es mayor a tres")
     
+    # @unittest.skip("Aqui Colocamos nuestros motivos")  # Cuando el programador conoce que la prueba no se va a ejecutar 
+    # @unittest.skipIf(True, "Aqui Colocamos nuestros motivos")
+    @unittest.skipIf(API_VERSION < 18, "lA VERSION ES OBSOLETA")
+    def test_prueba_skip(self):
+        pass
 
 if __name__ == '__main__':
     unittest.main()
