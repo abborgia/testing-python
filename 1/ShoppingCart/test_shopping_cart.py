@@ -32,7 +32,9 @@ class TestShoppingCart(unittest.TestCase):
     def test_obtener_producto_pan(self):
         item = self.shopping_cart.get_item(self.pan)
         self.assertIs(item, self.pan)
+        self.assertIsNot(item, self.jugo)
 
+    
     
     
 
