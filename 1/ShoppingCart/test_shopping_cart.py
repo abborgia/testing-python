@@ -55,7 +55,9 @@ class TestShoppingCart(unittest.TestCase):
     
     # @unittest.skip("Aqui Colocamos nuestros motivos")  # Cuando el programador conoce que la prueba no se va a ejecutar 
     # @unittest.skipIf(True, "Aqui Colocamos nuestros motivos")
-    @unittest.skipIf(API_VERSION < 18, "lA VERSION ES OBSOLETA")
+    # @unittest.skipIf(API_VERSION < 18, "lA VERSION ES OBSOLETA")
+    # @unittest.skipUnless(False, "Colocamos motivo")
+    @unittest.skipUnless(3 > 5, "3 no es mayor a 5")
     def test_prueba_skip(self):
         pass
 
